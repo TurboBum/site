@@ -5,9 +5,8 @@ def post_list(request):
     posts = Post.published.all()
     return render(request, 'blog/post/list.html',{'posts':posts})
 
-def post_detail(request, year, month, day, post):
-    post = get_object_or_404(Post, status=Post.Status.PUBLISHED,)
-    print("qe2e32e1212e12"+post.title)
+def post_detail(request, id):
+    post = get_object_or_404(Post,id=id, status=Post.Status.PUBLISHED,)
     return render(request,
                 'blog/post/detail.html',
                 {'post': post})
